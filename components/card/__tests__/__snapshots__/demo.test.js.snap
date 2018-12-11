@@ -813,7 +813,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
       >
         <div
-          class="ant-tabs-bar"
+          class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
           role="tablist"
           tabindex="0"
         >
@@ -908,20 +908,41 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-tabs-content ant-tabs-content-animated"
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
+        <div
+          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:0%"
         >
           <div
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          />
+          >
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
           />
         </div>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
     </div>
     <div
@@ -948,7 +969,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
       >
         <div
-          class="ant-tabs-bar"
+          class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
           role="tablist"
           tabindex="0"
         >
@@ -1051,7 +1072,12 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-tabs-content ant-tabs-content-animated"
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
+        <div
+          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:-100%"
         >
           <div
@@ -1063,13 +1089,29 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          />
+          >
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
           />
         </div>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
     </div>
     <div

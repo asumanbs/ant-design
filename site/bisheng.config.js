@@ -6,14 +6,15 @@ const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
 
 function alertBabelConfig(rules) {
-  rules.forEach((rule) => {
+  rules.forEach(rule => {
     if (rule.loader && rule.loader === 'babel-loader') {
       if (rule.options.plugins.indexOf(replaceLib) === -1) {
         rule.options.plugins.push(replaceLib);
       }
-      rule.options.plugins = rule.options.plugins.filter(plugin => (
-        !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1
-      ));
+      // eslint-disable-next-line
+      rule.options.plugins = rule.options.plugins.filter(
+        plugin => !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1,
+      );
     } else if (rule.use) {
       alertBabelConfig(rule.use);
     }
@@ -25,10 +26,7 @@ module.exports = {
   source: {
     components: './components',
     docs: './docs',
-    changelog: [
-      'CHANGELOG.zh-CN.md',
-      'CHANGELOG.en-US.md',
-    ],
+    changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
@@ -85,7 +83,11 @@ module.exports = {
   doraConfig: {
     verbose: true,
   },
+  lessConfig: {
+    javascriptEnabled: true,
+  },
   webpackConfig(config) {
+    // eslint-disable-next-line
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
@@ -94,11 +96,13 @@ module.exports = {
       'react-router': 'react-router/umd/ReactRouter',
     };
 
+    // eslint-disable-next-line
     config.externals = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
     if (usePreact) {
+      // eslint-disable-next-line
       config.resolve.alias = Object.assign({}, config.resolve.alias, {
         react: 'preact-compat',
         'react-dom': 'preact-compat',
@@ -108,14 +112,13 @@ module.exports = {
     }
 
     if (isDev) {
+      // eslint-disable-next-line
       config.devtool = 'source-map';
     }
 
     alertBabelConfig(config.module.rules);
 
-    config.plugins.push(
-      new CSSSplitWebpackPlugin({ size: 4000 }),
-    );
+    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },
